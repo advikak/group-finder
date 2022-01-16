@@ -8,6 +8,8 @@ const Header = () => {
         <div className="menu">
             <div className= "container">
                 <h2>Groupify</h2>
+                <img src="src/Groupifynder logo - transparent.png" alt="Logo"/>
+
             </div>
         </div>
     );
