@@ -1,6 +1,22 @@
-# Getting Started with Create React App
+# Groupifynder
+
+Having trouble finding the links to class group chats or clubs? Or just feeling lonely and wanting to meet some new people? Groupfynder is the solution for you! Groupfynder is a web application designed to help students easily find group chats to meet people. Users can add a link to a group chat for a class, club or interest group, and can browse through to find chats.
+
+## The Idea
+Platform that provides users with links to different group chats for classes, clubs, interests.
+
+## User Stories
+* Create a profile (group type, name, description) for a class/group with a related link
+* Users can look for different group chats for specific classes
+* Users can delete current class profiles
+
+<br />
+<br />
+<br />
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+
 
 ## Available Scripts
 
