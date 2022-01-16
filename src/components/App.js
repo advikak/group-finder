@@ -5,24 +5,25 @@ import AddGroup from './AddGroup';
 import GroupList from './GroupList';
 
 function App() {
-  // const [groups, setGroups] = useState([]);
-  // const addGroupHandler = (group) => {
-  //   console.log(group);
-  // }
+  const [groups, setGroups] = useState([]);
 
- const groups = [
-   {
-     name: "Bob's Bobba Club",
-     type: "Club",
-     link: "www.bobba.com"
-   }, 
-   {
-     name: "Food Class",
-     type: "Class",
-     link: "www.discord.com",
-   }, 
+  const addGroupHandler = (group) => {
+    console.log(group);
+    setGroups([...groups, group]);
+  }
+//  const groups = [
+//    {
+//      name: "Bob's Bobba Club",
+//      type: "Club",
+//      link: "www.bobba.com"
+//    }, 
+//    {
+//      name: "Food Class",
+//      type: "Class",
+//      link: "www.discord.com",
+//    }, 
 
- ];
+//  ];
 
 
   return (
@@ -32,8 +33,7 @@ function App() {
      
 
       <body>
-      <AddGroup/>
-      {/* <AddGroup addGroupHandler={addGroupHandler}/> */}
+      <AddGroup addGroupHandler={addGroupHandler}/>
       <GroupList groups = {groups} />
       </body>
 
