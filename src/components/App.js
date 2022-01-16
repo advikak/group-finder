@@ -11,11 +11,22 @@ uuidv4(); // ⇨ '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
 function App() {
   const LOCAL_STORAGE_KEY = "groups";
   const [groups, setGroups] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const addGroupHandler = (group) => {
     console.log(group);
     setGroups([...groups, {name: uuidv4, ...group}]);
   }
+
+  const editGroupHandler = (group) => {
+    console.log(group);
+    const {name, type, link} = group.data;
+    setGroups(groups.map(group => {
+      return group.name === name ? {... group.data} : group
+    }))
+  }
+
+  const searchHandler = () => {};
 
   useEffect(() => {
     const retrieveGroups = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
@@ -25,20 +36,6 @@ function App() {
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(groups));
   }, [groups]);
-//  const groups = [
-//    {
-//      name: "Bob's Bobba Club",
-//      type: "Club",
-//      link: "www.bobba.com"
-//    }, 
-//    {
-//      name: "Food Class",
-//      type: "Class",
-//      link: "www.discord.com",
-//    }, 
-
-//  ];
-
 
 
 const removeGroup = (name) => {
@@ -49,24 +46,22 @@ const removeGroup = (name) => {
   setGroups(newGroupList);
 };
 
-  return (
+ 
+return (
   <div className = "ui container">
     <Router>
-
     <Header>
       </Header>
-      <Route path="/add" component={AddGroup} />
-      <Route path="/" component={GroupList} />
-
-     
+      {/* <Switch>
+      <Router path="/add" exact component = {AddGroup} />
+      <Router path="/" exact component = {GroupList} />
+      </Switch> */}
       <body>
-      {/* <AddGroup addGroupHandler={addGroupHandler}/> */}
-      {/* <GroupList groups = {groups} getGroupName={removeGroup}/> */}
+      <AddGroup addGroupHandler={addGroupHandler}/>
+      <GroupList groups = {groups} getGroupName={removeGroup}/>
       </body>
 
     </Router>
-
-    
 
   </div>
   );
