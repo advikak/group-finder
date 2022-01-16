@@ -1,16 +1,42 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Header from './Header';
 import AddGroup from './AddGroup';
 import GroupList from './GroupList';
 
 function App() {
+  // const [groups, setGroups] = useState([]);
+  // const addGroupHandler = (group) => {
+  //   console.log(group);
+  // }
+
+ const groups = [
+   {
+     name: "Bob's Bobba Club",
+     type: "Club",
+     link: "www.bobba.com"
+   }, 
+   {
+     name: "Food Class",
+     type: "Class",
+     link: "www.discord.com",
+   }, 
+
+ ];
+
+
   return (
-  <div>
+  <div className = "ui container">
     <Header>
-      <AddGroup />
-      <GroupList />
-    </Header>
+      </Header>
+     
+
+      <body>
+      <AddGroup/>
+      {/* <AddGroup addGroupHandler={addGroupHandler}/> */}
+      <GroupList groups = {groups} />
+      </body>
+
   </div>
   );
 }

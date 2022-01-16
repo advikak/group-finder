@@ -1,5 +1,7 @@
 import React from "react";
 import AddGroup from './AddGroup';
+import GroupList from './GroupList';
+
 
 const Header = () => {
     return(
@@ -7,7 +9,6 @@ const Header = () => {
             <div className= "container">
                 <h2>Groupify</h2>
             </div>
-            <AddGroup />
         </div>
     );
 }

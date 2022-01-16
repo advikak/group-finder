@@ -11,10 +11,10 @@ class AddGroup extends React.Component {
   add = (e) => {
     e.preventDefault();
     if (this.state.name === "" || this.state.type === "" || this.state.link === "") {
-      alert("ALl the fields are mandatory!");
+      alert("All the fields are mandatory!");
       return;
     }
-    this.props.addContactHandler(this.state);
+    this.props.addGroupHandler(this.state);
     this.setState({ name: "",type: "", link: "" });
   };
   render() {
