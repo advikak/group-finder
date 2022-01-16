@@ -1,29 +1,52 @@
-import React, {useState} from 'react';
-import './App.css';
-import Header from './Header';
+import React, {useState, useEffect} from 'react';
 import AddGroup from './AddGroup';
 import GroupList from './GroupList';
+import './App.css';
+import Header from './Header';
+import { v4 as uuidv4 } from 'uuid';
+uuidv4(); // ⇨ '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
+
 
 function App() {
-  // const [groups, setGroups] = useState([]);
-  // const addGroupHandler = (group) => {
-  //   console.log(group);
-  // }
+  const LOCAL_STORAGE_KEY = "groups";
+  const [groups, setGroups] = useState([]);
 
- const groups = [
-   {
-     name: "Bob's Bobba Club",
-     type: "Club",
-     link: "www.bobba.com"
-   }, 
-   {
-     name: "Food Class",
-     type: "Class",
-     link: "www.discord.com",
-   }, 
+  const addGroupHandler = (group) => {
+    console.log(group);
+    setGroups([...groups, {name: uuidv4, ...group}]);
+  }
 
- ];
+  useEffect(() => {
+    const retrieveGroups = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+    if (retrieveGroups) setGroups(retrieveGroups);
+  }, []);
 
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(groups));
+  }, [groups]);
+//  const groups = [
+//    {
+//      name: "Bob's Bobba Club",
+//      type: "Club",
+//      link: "www.bobba.com"
+//    }, 
+//    {
+//      name: "Food Class",
+//      type: "Class",
+//      link: "www.discord.com",
+//    }, 
+
+//  ];
+
+
+
+const removeGroup = (name) => {
+  const newGroupList = groups.filter((group) => {
+    return group.name !== name;
+  });
+
+  setGroups(newGroupList);
+};
 
   return (
   <div className = "ui container">
@@ -32,9 +55,8 @@ function App() {
      
 
       <body>
-      <AddGroup/>
-      {/* <AddGroup addGroupHandler={addGroupHandler}/> */}
-      <GroupList groups = {groups} />
+      <AddGroup addGroupHandler={addGroupHandler}/>
+      <GroupList groups = {groups} getGroupName={removeGroup}/>
       </body>
 
   </div>
