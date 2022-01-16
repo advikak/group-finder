@@ -4,19 +4,25 @@ import GroupCard from "./GroupCard";
 const GroupList = (props) => {
     console.log(props);
 
-    const groups = [
-        {
-            name: "Food",
-            type: "Group",
-            link: "https://github.com/advikak/group-finder",
-        },
-    ];
-    
-    const renderGroupList = groups.map((group) => {
-        return (
-            <GroupCard group={group}></GroupCard>
-    
+        const deleteGroupHandler = (name) => {
+            props.getGroupName(name);
+        };
 
+    // const groups = [
+    //     {
+    //         name: "Food",
+    //         type: "Group",
+    //         link: "https://github.com/advikak/group-finder",
+    //     },
+    // ];
+    
+    const renderGroupList = props.groups.map((group) => {
+        return (
+            <GroupCard group={group}
+             clickHandler = {deleteGroupHandler} 
+             key = {group.name}
+             />
+    
             // <div className = "item">
             //     <div className = "content">
             //         <div className = "header">{group.name}</div>

@@ -13,17 +13,6 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
 .App-link {
   color: #61dafb;
 }
@@ -42,5 +31,25 @@
   text-align: center;
   background: #1abc9c;
   color: white;
-  font-size: 50px;
+}
+
+
+h2 {
+  font-weight: bold;
+  font-size: 70px;
+}
+
+
+.item {
+  padding: 15px;
+  font-size: 20px;
+  background: #eceeee;
+  color: #32ccad;
+}
+
+.header {
+   font-weight: 900;
+   margin-bottom: 10px;
+   color: #23a88e;
+   font-size: 25;
 }
