@@ -7,18 +7,12 @@ class EditGroup extends React.Component {
   constructor(props) {
     super(props)
     const {name, type, link} = props.location.state.group;
-    thistory.state = {
+    this.state = {
       name,
       type,
       link,
     };
   }
-
-  state = {
-    name: "",
-    type: "",
-    link: "",
-  };
 
   update = (e) => {
     e.preventDefault();
@@ -26,13 +20,13 @@ class EditGroup extends React.Component {
       alert("All the fields are mandatory!");
       return;
     }
-    this.props.addGroupHandler(this.state);
+    this.props.editGroupHandler(this.state);
     this.setState({ name: "",type: "", link: "" });
   };
   render() {
     return (
       <div className="ui main">
-        <h2>Add Group</h2>
+        <h2>Edit Group</h2>
         <form className="ui form" onSubmit={this.update}>
           <div className="field">
             <label>Group Name</label>
@@ -67,7 +61,7 @@ class EditGroup extends React.Component {
               onChange={(e) => this.setState({ link: e.target.value })}
             />
           </div>
-          <button className="ui button blue">Add</button>
+          <button className="ui button blue">Update</button>
         </form>
       </div>
     );
