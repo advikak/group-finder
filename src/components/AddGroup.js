@@ -20,7 +20,7 @@ class AddGroup extends React.Component {
   render() {
     return (
       <div className="ui main">
-        <h2>Add Group</h2>
+        <h1>Add Group</h1>
         <form className="ui form" onSubmit={this.add}>
           <div className="field">
             <label>Group Name</label>
