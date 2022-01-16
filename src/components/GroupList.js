@@ -3,8 +3,16 @@ import GroupCard from "./GroupCard";
 
 const GroupList = (props) => {
     console.log(props);
+
+    const groups = [
+        {
+            name: "Food",
+            type: "Group",
+            link: "https://github.com/advikak/group-finder",
+        },
+    ];
     
-    const renderGroupList = props.groups.map((group) => {
+    const renderGroupList = groups.map((group) => {
         return (
             <GroupCard group={group}></GroupCard>
     

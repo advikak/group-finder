@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import AddGroup from './AddGroup';
 import GroupList from './GroupList';
 import './App.css';
@@ -50,14 +51,22 @@ const removeGroup = (name) => {
 
   return (
   <div className = "ui container">
+    <Router>
+
     <Header>
       </Header>
-     
+      <Route path="/add" component={AddGroup} />
+      <Route path="/" component={GroupList} />
 
+     
       <body>
-      <AddGroup addGroupHandler={addGroupHandler}/>
-      <GroupList groups = {groups} getGroupName={removeGroup}/>
+      {/* <AddGroup addGroupHandler={addGroupHandler}/> */}
+      {/* <GroupList groups = {groups} getGroupName={removeGroup}/> */}
       </body>
+
+    </Router>
+
+    
 
   </div>
   );
