@@ -4,8 +4,8 @@ import React from "react";
 const Header = () => {
     return(
         <div className="menu">
-            <div className= "container">
-                <h2>GROUPIFYNDER</h2>
+            <div className= "title">
+                <h1>GROUPIFYNDER</h1>
             </div>
         </div>
     );

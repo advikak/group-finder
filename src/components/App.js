@@ -48,7 +48,7 @@ const removeGroup = (name) => {
 
  
 return (
-  <div className = "ui container">
+  <div className = "ui-container">
     <Router>
     <Header>
       </Header>
